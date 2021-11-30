@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
@@ -6,31 +6,27 @@ import { useState } from "react";
 const Metricas = () => {
 
 
-    const [nombre, setNombre] = useState("Alejo")
-    const [Apellido, setApellido] = useState("")
-    const [documento, setdocumento] = useState("")
-    const [edad, setedad] = useState("")
+  
     const [registros, setregistros] = useState([])
+
+
 
     const enviar = (evt) => {
 
         evt.preventDefault();
 
-        setNombre(evt.target.nombre.value);
-        setApellido(evt.target.apellido.value)
-        setdocumento(evt.target.documento.value)
      
         let actual = registros;
-
+ debugger
         actual.push({
-            "documento": documento,
-            "nombre": nombre,
-            "apellido": Apellido,
-            "edad": edad
+            "documento": evt.target.nombre.value,
+            "nombre": evt.target.apellido.value,
+            "apellido": evt.target.documento.value,
+            "edad": evt.target.edad.value
         })
 
         setregistros(actual)
-        console.log(registros)
+     console.log(registros)
 
     }
 
@@ -44,16 +40,6 @@ const Metricas = () => {
                 <label>edad :</label>   <input type="text" name="edad" />
                 <button type="submit"> Enviar</button>
             </form>
-
-            <div>
-
-
-
-            </div>
-
-
-
-
         </div>
     )
 
